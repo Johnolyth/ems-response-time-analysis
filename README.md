@@ -112,7 +112,7 @@ This repository is intended to demonstrate analytical methodology, pipeline desi
 ## How to Run
 1. Configure data sources (not included in this repository)
 2. Run: scripts/00_run_pipeline_master.R
-3. 3. Outputs will be generated in the `/output` directory
+3. Outputs will be generated in the `/output` directory
 
 ---
 
