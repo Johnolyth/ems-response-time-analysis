@@ -68,19 +68,15 @@ This project focuses on identifying:
 
 ## Pipeline Overview (Visual)
 
-```
-Raw Data
-   ↓
-Clean & Standardize
-   ↓
-Canonical Dataset
-   ↓
-Feature Engineering (Delay Flags)
-   ↓
-Analysis (p95, Components, Geography)
-   ↓
-Outputs (Tables, Insights)
+## Pipeline Overview (Diagram)
 
+```mermaid
+flowchart TD
+    A[Raw Data] --> B[Clean & Standardize]
+    B --> C[Canonical Dataset]
+    C --> D[Feature Engineering<br/>(Delay Flags)]
+    D --> E[Analysis<br/>(p95, Components, Geography)]
+    E --> F[Outputs<br/>(Tables, Insights)]
 ```
 
 ### Pipeline Orchestration
