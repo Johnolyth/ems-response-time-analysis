@@ -118,3 +118,45 @@ This repository is intended to demonstrate analytical methodology, pipeline desi
 
 ## Portfolio Context
 This repository represents a portfolio project demonstrating applied analytics, reproducible workflow design, and structured performance analysis using real-world EMS data concepts.
+
+---
+
+## Key Findings (Preliminary)
+
+- Response time performance is heavily influenced by tail behavior (p95), rather than median values alone  
+- Suburban areas exhibit elevated tail response times, particularly in scene response and transport components  
+- Delay flag stratification helps distinguish structural delays from incidental variability  
+- Transport time contributes disproportionately to extended response times in no-delay cases  
+- Jurisdiction-level variation suggests localized operational differences in response performance  
+
+---
+
+## Pipeline Overview
+
+The analysis is structured as a multi-stage pipeline that transforms raw EMS data into standardized datasets and produces analytical outputs for response time evaluation.
+
+**Workflow:**
+
+1. **Data Ingestion**
+   - Load raw EMS datasets from source systems
+
+2. **Data Cleaning & Standardization**
+   - Clean raw fields and normalize formats  
+   - Map variables into a canonical schema for consistency  
+
+3. **Canonical Dataset Construction**
+   - Build unified datasets combining multiple sources  
+   - Apply quality checks and validation  
+
+4. **Feature Engineering**
+   - Generate delay flags and derived variables  
+   - Prepare data for subgroup and tail analysis  
+
+5. **Analysis Layer**
+   - Compute response time distributions (median, p95)  
+   - Decompose system response time into components  
+   - Perform subgroup analysis by urbanicity and jurisdiction  
+
+6. **Output Generation**
+   - Produce summary tables and analytical outputs  
+   - Support case study interpretation and reporting  
