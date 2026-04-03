@@ -66,19 +66,22 @@ This project focuses on identifying:
 
 ---
 
-## Selected Pipeline Components
+## Pipeline Overview (Visual)
 
+```
 Raw Data
    ↓
-Cleaning / Standardization
+Clean & Standardize
    ↓
 Canonical Dataset
    ↓
 Feature Engineering (Delay Flags)
    ↓
-Analysis (p95, components, geography)
+Analysis (p95, Components, Geography)
    ↓
-Outputs (tables, insights)
+Outputs (Tables, Insights)
+
+```
 
 ### Pipeline Orchestration
 - `scripts/00_run_pipeline_master.R` – master pipeline runner  
