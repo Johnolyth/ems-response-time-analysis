@@ -1,0 +1,26 @@
+# Ignore data files
+data/
+*.parquet
+*.csv
+
+# Ignore R session files
+.Rhistory
+.RData
+
+# Ignore large outputs
+output/
+
+# OS junk
+.DS_Store
+
+# Large / generated / data folders
+data/
+output/
+nemsis_test/
+
+# R session files
+.Rhistory
+.RData
+
+# Optional notebook checkpoints
+.ipynb_checkpoints/
