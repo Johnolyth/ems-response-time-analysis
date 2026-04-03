@@ -66,18 +66,19 @@ This project focuses on identifying:
 
 ---
 
-## Pipeline Overview (Visual)
-
 ## Pipeline Overview (Diagram)
 
 ```mermaid
 flowchart TD
-    A[Raw Data] --> B[Clean & Standardize]
-    B --> C[Canonical Dataset]
-    C --> D[Feature Engineering<br/>(Delay Flags)]
-    D --> E[Analysis<br/>(p95, Components, Geography)]
-    E --> F[Outputs<br/>(Tables, Insights)]
+    A[Raw EMS Data] --> B[Cleaning & Standardization]
+    B --> C[Canonical Dataset Construction]
+    C --> D[Feature Engineering (Delay Flags)]
+    D --> E[Response Time Analysis (p95, Components, Geography)]
+    E --> F[Analytical Outputs (Tables, Insights)]
 ```
+
+---
+
 
 ### Pipeline Orchestration
 - `scripts/00_run_pipeline_master.R` – master pipeline runner  
