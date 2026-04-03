@@ -7,6 +7,14 @@ Rather than relying on averages alone, this analysis emphasizes percentile-based
 
 ---
 
+## Project Summary
+
+This project builds a structured analytics pipeline to evaluate EMS response time performance, with a focus on long-tail delays (p95). 
+
+The core objective is to move beyond average response times and identify which operational components (dispatch, chute, scene, transport) contribute most to extended response times across different geographies and jurisdictions.
+
+---
+
 ## Why This Matters
 Emergency response performance is often summarized using averages, which can obscure critical delays. In practice, **long-tail response times (p95)** can have significant operational and patient impact.
 
