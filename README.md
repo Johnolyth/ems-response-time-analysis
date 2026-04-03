@@ -19,15 +19,15 @@ The project is structured as a reproducible workflow that transforms raw EMS dat
 
 ## Project Structure
 ems-data-project/
-├── scripts/ # Core pipeline and analysis scripts
-├── data/ # Raw and processed data (excluded from repo)
-├── output/ # Generated outputs (excluded from repo)
-├── docs/ # Notes and supporting documentation
-├── notebooks/ # Exploratory analysis
-├── ref/ # Reference materials
-├── admin/ # Project support files
-├── .gitignore
-├── README.md
+- scripts/ # Core pipeline and analysis scripts
+- data/ # Raw and processed data (excluded from repo)
+- output/ # Generated outputs (excluded from repo)
+- docs/ # Notes and supporting documentation
+- notebooks/ # Exploratory analysis
+- ref/ # Reference materials
+- admin/ # Project support files
+- .gitignore
+- README.md
 
 
 ---
