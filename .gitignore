@@ -1,26 +1,43 @@
-# Ignore data files
-data/
-*.parquet
-*.csv
-
-# Ignore R session files
-.Rhistory
-.RData
-
-# Ignore large outputs
-output/
-
-# OS junk
-.DS_Store
-
-# Large / generated / data folders
+# =========================
+# DATA (DO NOT TRACK)
+# =========================
 data/
 output/
 nemsis_test/
 
-# R session files
+# Large data formats
+*.parquet
+*.feather
+*.fst
+*.rds
+*.csv
+
+# =========================
+# R / RStudio
+# =========================
 .Rhistory
 .RData
+.Rproj.user/
 
-# Optional notebook checkpoints
+# =========================
+# Python
+# =========================
+__pycache__/
+*.pyc
+*.pyo
+
+# =========================
+# Notebooks
+# =========================
 .ipynb_checkpoints/
+
+# =========================
+# OS / System
+# =========================
+.DS_Store
+Thumbs.db
+
+# =========================
+# Logs / temp
+# =========================
+*.log
