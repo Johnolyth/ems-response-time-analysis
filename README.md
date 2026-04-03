@@ -1,163 +1,114 @@
-# EMS Response Time Case Study
+# EMS Response Time Analysis
 
 ## Overview
-This repository contains the data pipeline and analysis framework for an EMS response time case study focused on understanding response time distributions, identifying tail delays (p95), and analyzing contributing components across jurisdictions.
+This project presents a reproducible analytics pipeline for evaluating EMS response time performance, with a focus on understanding long-tail delays (p95), operational components of response time, and variation across jurisdictions.
 
-The project is structured as a reproducible workflow that transforms raw EMS data into standardized datasets and produces analytical outputs used for case study reporting.
-
----
-
-## Objectives
-- Build a reproducible EMS data pipeline
-- Standardize and canonicalize EMS datasets
-- Analyze response time distributions (median, p95)
-- Identify contributors to long response times (tail analysis)
-- Evaluate variation by geography and urbanicity
-- Support local jurisdiction-level insights
+Rather than relying on averages alone, this analysis emphasizes percentile-based performance to identify where and why extended response times occur.
 
 ---
 
-## Project Structure
-ems-data-project/
-- scripts/ # Core pipeline and analysis scripts
-- data/ # Raw and processed data (excluded from repo)
-- output/ # Generated outputs (excluded from repo)
-- docs/ # Notes and supporting documentation
-- notebooks/ # Exploratory analysis
-- ref/ # Reference materials
-- admin/ # Project support files
-- .gitignore
-- README.md
+## Why This Matters
+Emergency response performance is often summarized using averages, which can obscure critical delays. In practice, **long-tail response times (p95)** can have significant operational and patient impact.
 
+This project focuses on identifying:
+- where extended response times occur
+- which components contribute most to those delays
+- how patterns vary across geography and operational context
 
 ---
 
-## Pipeline Overview
-
-The workflow is organized into sequential stages:
-
-### Setup
-- `00_setup.R`  
-  Initializes environment and project configuration
-
-- `scripts/00_run_pipeline_master.R`  
-  Orchestrates full pipeline execution
+## What This Project Demonstrates
+- End-to-end data pipeline development in R
+- Data cleaning, standardization, and canonical modeling
+- Quantile-based performance analysis (p95 focus)
+- Feature engineering (delay flags)
+- Component-level decomposition of response time
+- Multi-level analysis (system-wide and jurisdiction-level)
+- Reproducible workflow design using Git and GitHub
 
 ---
+
+## Methods at a Glance
+- Built a multi-stage pipeline to transform raw EMS data into analysis-ready datasets
+- Standardized fields into a canonical schema for consistency across sources
+- Computed response time distributions (median, p95)
+- Engineered delay flags to isolate structural vs incidental delays
+- Decomposed system response time into operational components
+- Performed subgroup analysis by urbanicity and jurisdiction
+
+---
+
+## Key Analytical Themes
+- **Tail-focused analysis** rather than averages alone  
+- **Component decomposition** of system response time  
+- **Delay flag stratification** to isolate delay mechanisms  
+- **Geographic variation** in response performance  
+- **Transport and scene contributions** to long response times  
+
+---
+
+## Repository Structure
+- `scripts/` – pipeline and analysis scripts  
+- `docs/` – project notes and documentation  
+- `ref/` – reference materials  
+- `admin/` – administrative/support files  
+- `notebooks/` – exploratory analysis  
+- `data/` – excluded from this repository  
+- `output/` – excluded from this repository  
+
+---
+
+## Selected Pipeline Components
+
+### Pipeline Orchestration
+- `scripts/00_run_pipeline_master.R` – master pipeline runner  
+- `00_setup.R` – environment setup  
 
 ### Data Preparation
-- `scripts/02_load_data.R`  
-  Loads raw datasets
-
-- `scripts/03_clean_data.R`  
-  Cleans and prepares data
-
-- `scripts/03b_standardize_canonical.R`  
-  Standardizes fields into canonical schema
-
-- `scripts/03c_local_ingest_combine.R`  
-  Integrates local data sources
-
----
+- `scripts/03_clean_data.R` – data cleaning  
+- `scripts/03b_standardize_canonical.R` – canonical field standardization  
+- `scripts/03c_local_ingest_combine.R` – local data integration  
 
 ### Canonical Dataset Construction
-- `scripts/04_build_canonical.R`  
-  Builds unified canonical datasets
+- `scripts/04_build_canonical.R` – canonical dataset build  
+- `scripts/04_inventory_QA.R` – data validation and QA  
+- `scripts/04c_build_local_geo.R` – geographic enrichment  
 
-- `scripts/04_inventory_QA.R`  
-  Data quality checks and validation
+### Core Analysis
+- `scripts/05_01_response_time_core.R` – response time calculation  
+- `scripts/05_01b_response_time_quantiles.R` – quantile and p95 analysis  
 
-- `scripts/04c_build_local_canonical.R`  
-  Local dataset construction
+### Tail & Delay Analysis
+- `scripts/05_00_build_delay_flags_feature.R` – delay feature engineering  
+- `scripts/05_02_no_delay_tail_composition.R` – tail decomposition  
+- `scripts/05_03_suburban_transport_tail_hotspots.R` – hotspot identification  
+- `scripts/05_04_no_delay_transport_ratio_analysis.R` – transport contribution  
 
-- `scripts/04c_build_local_geo.R`  
-  Geographic enrichment
-
----
-
-### Analysis Layer
-
-#### Core Analysis
-- `scripts/05_01_response_time_core.R`  
-  Core response time calculations
-
-- `scripts/05_01b_response_time_quantiles.R`  
-  Quantile analysis (including p95)
-
----
-
-#### Delay & Tail Analysis
-- `scripts/05_00_build_delay_flags_feature.R`  
-  Constructs delay indicators
-
-- `scripts/05_01c_response_time_by_delay_flags.R`  
-  Stratifies response times by delay presence
-
-- `scripts/05_01d_response_time_no_delay_by_urbanicity.R`  
-  Compares no-delay cases across urbanicity
-
-- `scripts/05_02_no_delay_tail_composition.R`  
-  Decomposes p95 tail contributions
-
-- `scripts/05_03_suburban_transport_tail_hotspots.R`  
-  Identifies transport-driven tail hotspots
-
-- `scripts/05_04_no_delay_transport_ratio_analysis.R`  
-  Evaluates transport contribution ratios
-
----
-
-#### Local / Jurisdiction-Level Analysis
+### Local / Jurisdiction Analysis
 - `scripts/05_10_local_snhd_response_time_quantiles_by_jurisdiction.R`  
-  Jurisdiction-level quantile analysis
-
 - `scripts/05_11_local_snhd_tail_component_breakdown.R`  
-  Tail component breakdown by jurisdiction
 
 ---
 
-## Data
-
-This repository does **not include raw or processed data**.
-
-Data sources (e.g., NEMSIS and local datasets) are excluded due to:
-- size constraints
-- access restrictions
-- data governance considerations
-
-This repository is intended to track:
-- code
-- pipeline structure
-- analytical logic
-- reproducibility of methods
+## Tools Used
+- **R** – data pipeline and analysis  
+- **Python** – supplemental diagnostics/utilities  
+- **Git & GitHub** – version control and project presentation  
 
 ---
 
-## Key Concepts
+## Data Availability
+This repository does **not include raw or processed datasets**.
 
-- **System Response Time**  
-  Total time from dispatch to arrival on scene
+Data sources (e.g., NEMSIS and local EMS data) are excluded due to:
+- data size constraints  
+- access restrictions  
+- data governance considerations  
 
-- **Component Times**
-  - Dispatch center time
-  - Chute time
-  - Scene response time
-  - Transport time
-
-- **p95 (95th percentile)**  
-  Used to evaluate tail performance and identify extreme delays
+This repository is intended to demonstrate analytical methodology, pipeline design, and reproducibility.
 
 ---
 
-## Current Status
-
-Active development:
-- Pipeline established and functional
-- Core and local analyses implemented
-- Expanding case study insights and validation
-
----
-
-## Notes
-
-This project is part of a broader case study examining EMS response performance and identifying operational improvement opportunities.
+## How to Run
+1. Configure data sources (not included in this repository)
+2. Run:
