@@ -111,4 +111,10 @@ This repository is intended to demonstrate analytical methodology, pipeline desi
 
 ## How to Run
 1. Configure data sources (not included in this repository)
-2. Run:
+2. Run: scripts/00_run_pipeline_master.R
+3. 3. Outputs will be generated in the `/output` directory
+
+---
+
+## Portfolio Context
+This repository represents a portfolio project demonstrating applied analytics, reproducible workflow design, and structured performance analysis using real-world EMS data concepts.
